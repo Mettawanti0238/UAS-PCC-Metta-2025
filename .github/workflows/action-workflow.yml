@@ -11,5 +11,6 @@ jobs:
       - name: Build and Tag Docker Image
         run: |
           docker build -t metta11/uas-pcc-metta-2025:tagname -f Dockerfile .
+          docker login -u ${{secrets.metta11}} -p ${{secrets.dckr_pat_aKEX991fQ_KSXSzq4QhgA4JVlvM}} && docker push metta11/uas-pcc-metta-2025:tagname
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
