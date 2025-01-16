@@ -1,0 +1,15 @@
+name: GitHub Actions UAS-PCC-Metta-2025
+run-name: ${{ github.actor }} is Building Docker Image 🚀
+on: [push]
+jobs:
+  Build-Docker-Image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Build and Tag Docker Image
+        run: |
+          docker build -t metta11/uas-pcc-metta-2025:tagname -f Dockerfile .
+
+      - run: echo "🍏 This job's status is ${{ job.status }}."
